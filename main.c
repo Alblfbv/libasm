@@ -40,8 +40,8 @@ void test_ft_strlen(void)
 		if (my_len != real_len)
 		{
 			printf(ERROR "ERROR: different lengths\n" RESET_COL);
-			printf("real strlen	=	%zu", real_len);
-			printf("my strlen	=	%zu", my_len);
+			printf("real strlen	=	%zu\n", real_len);
+			printf("my strlen	=	%zu\n", my_len);
 		}
 		else
 			printf(SUCCESS "SUCCESS\n" RESET_COL);
@@ -68,8 +68,8 @@ void test_ft_strcpy(void)
 		if (strcmp(my_str, real_str))
 		{
 			printf(ERROR "ERROR: different strings\n" RESET_COL);
-			printf("real strcpy	=	%s", real_str);
-			printf("my strcpy	=	%s", my_str);
+			printf("real strcpy	=	%s\n", real_str);
+			printf("my strcpy	=	%s\n", my_str);
 		}
 		else
 			printf(SUCCESS "SUCCESS\n" RESET_COL);
@@ -98,8 +98,8 @@ void test_ft_strcmp(void)
 			if (my_ret != real_ret)
 			{
 				printf(ERROR "ERROR: different return values\n" RESET_COL);
-				printf("real strcmp	=	%d", real_ret);
-				printf("my strcmp	=	%d", my_ret);
+				printf("real strcmp	=	%d\n", real_ret);
+				printf("my strcmp	=	%d\n", my_ret);
 			}
 			else
 				printf(SUCCESS "SUCCESS\n" RESET_COL);
@@ -126,8 +126,8 @@ void test_ft_strdup(void)
 		if (strcmp(my_str, real_str))
 		{
 			printf(ERROR "ERROR: different strings\n" RESET_COL);
-			printf("real strdup	=	%s", real_str);
-			printf("my strdup	=	%s", my_str);
+			printf("real strdup	=	%s\n", real_str);
+			printf("my strdup	=	%s\n", my_str);
 		}
 		else
 			printf(SUCCESS "SUCCESS\n" RESET_COL);
@@ -172,16 +172,16 @@ void test_ft_write(void)
 		if (real_ret != my_ret)
 		{
 			printf(ERROR "ERROR: different return values\n" RESET_COL);
-			printf("real ret	=	%ld", real_ret);
-			printf("my ret		=	%ld", my_ret);
+			printf("real ret	=	%ld\n", real_ret);
+			printf("my ret		=	%ld\n", my_ret);
 		}
 		else
 		{
 			if (strcmp(real_buff, my_buff))
 			{
 				printf(ERROR "ERROR: different buffer contents\n" RESET_COL);
-				printf("real buffer	=	%s", real_buff);
-				printf("my buffer	=	%s", my_buff);
+				printf("real buffer	=	%s\n", real_buff);
+				printf("my buffer	=	%s\n", my_buff);
 			}
 			else
 				printf(SUCCESS "SUCCESS\n" RESET_COL);
@@ -198,14 +198,14 @@ void test_ft_write(void)
 		if (real_ret != my_ret)
 		{
 			printf(ERROR "ERROR: different return values\n" RESET_COL);
-			printf("real ret	=	%ld", real_ret);
-			printf("my ret		=	%ld", my_ret);
+			printf("real ret	=	%ld\n", real_ret);
+			printf("my ret		=	%ld\n", my_ret);
 		}
 		if (real_errno != my_errno)
 		{
 			printf(ERROR "ERROR: different errno values\n" RESET_COL);
-			printf("real errno	=	%d", real_errno);
-			printf("my errno	=	%d", my_errno);
+			printf("real errno	=	%d\n", real_errno);
+			printf("my errno	=	%d\n", my_errno);
 		}
 	}
 	else
@@ -251,16 +251,16 @@ void test_ft_read(void)
 		if (real_ret != my_ret)
 		{
 			printf(ERROR "ERROR: different return values\n" RESET_COL);
-			printf("real ret	=	%ld", real_ret);
-			printf("my ret		=	%ld", my_ret);
+			printf("real ret	=	%ld\n", real_ret);
+			printf("my ret		=	%ld\n", my_ret);
 		}
 		else
 		{
 			if (strcmp(real_buff, my_buff))
 			{
 				printf(ERROR "ERROR: different buffer contents\n" RESET_COL);
-				printf("real buffer	=	%s", real_buff);
-				printf("my buffer	=	%s", my_buff);
+				printf("real buffer	=	%s\n", real_buff);
+				printf("my buffer	=	%s\n", my_buff);
 			}
 			else
 				printf(SUCCESS "SUCCESS\n" RESET_COL);
@@ -277,14 +277,14 @@ void test_ft_read(void)
 		if (real_ret != my_ret)
 		{
 			printf(ERROR "ERROR: different return values\n" RESET_COL);
-			printf("real ret	=	%ld", real_ret);
-			printf("my ret	=	%ld", my_ret);
+			printf("real ret	=	%ld\n", real_ret);
+			printf("my ret	=	%ld\n", my_ret);
 		}
 		if (real_errno != my_errno)
 		{
 			printf(ERROR "ERROR: different errno values\n" RESET_COL);
-			printf("real errno	=	%d", real_errno);
-			printf("my errno	=	%d", my_errno);
+			printf("real errno	=	%d\n", real_errno);
+			printf("my errno	=	%d\n", my_errno);
 		}
 	}
 	else

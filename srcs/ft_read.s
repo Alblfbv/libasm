@@ -8,6 +8,7 @@ ft_read:
 	push rbp
 	mov rbp, rsp
 
+	xor rax, rax
 	mov rax, 0x0
 	syscall
 

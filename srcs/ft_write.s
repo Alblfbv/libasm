@@ -8,6 +8,7 @@ ft_write:
 	push rbp
 	mov rbp, rsp
 
+	xor rax, rax
 	mov rax, 0x1					; write syscall code
 	syscall							; system interrupt (msg length already in rdx)
 
