@@ -39,7 +39,7 @@ void test_ft_strlen(void)
 		printf("test n°%d: ", i);
 		if (my_len != real_len)
 		{
-			printf(ERROR "ERROR: different lengths\n" RESET_COL);
+			printf(ERROR "\nERROR: different lengths\n" RESET_COL);
 			printf("real strlen	=	%zu\n", real_len);
 			printf("my strlen	=	%zu\n", my_len);
 		}
@@ -67,7 +67,7 @@ void test_ft_strcpy(void)
 		printf("test n°%d: ", i);
 		if (strcmp(my_str, real_str))
 		{
-			printf(ERROR "ERROR: different strings\n" RESET_COL);
+			printf(ERROR "\nERROR: different strings\n" RESET_COL);
 			printf("real strcpy	=	%s\n", real_str);
 			printf("my strcpy	=	%s\n", my_str);
 		}
@@ -75,6 +75,10 @@ void test_ft_strcpy(void)
 			printf(SUCCESS "SUCCESS\n" RESET_COL);
 		i++;
 	}
+	if (real_str != NULL)
+		free(real_str);
+	if (my_str != NULL)
+		free(my_str);
 	printf("\n\n");
 }
 
@@ -97,13 +101,14 @@ void test_ft_strcmp(void)
 			printf("test n°%d%d: ", i, j);
 			if (my_ret != real_ret)
 			{
-				printf(ERROR "ERROR: different return values\n" RESET_COL);
+				printf(ERROR "\nERROR: different return values\n" RESET_COL);
 				printf("real strcmp	=	%d\n", real_ret);
 				printf("my strcmp	=	%d\n", my_ret);
 			}
 			else
-				printf(SUCCESS "SUCCESS\n" RESET_COL);
+				printf(SUCCESS "SUCCESS" RESET_COL);
 			j++;
+			printf("\n");
 		}
 		i++;
 	}
@@ -125,14 +130,19 @@ void test_ft_strdup(void)
 		printf("test n°%d: ", i);
 		if (strcmp(my_str, real_str))
 		{
-			printf(ERROR "ERROR: different strings\n" RESET_COL);
+			printf(ERROR "\nERROR: different strings\n" RESET_COL);
 			printf("real strdup	=	%s\n", real_str);
 			printf("my strdup	=	%s\n", my_str);
 		}
 		else
-			printf(SUCCESS "SUCCESS\n" RESET_COL);
+			printf(SUCCESS "SUCCESS" RESET_COL);
 		i++;
+		printf("\n");
 	}
+	if (real_str != NULL)
+		free(real_str);
+	if (my_str != NULL)
+		free(my_str);
 	printf("\n\n");
 }
 
@@ -142,8 +152,8 @@ void test_ft_write(void)
 	ssize_t my_ret;
 	char *real_buff;
 	char *my_buff;
-	const char *real_file;
-	const char *my_file;
+	char *real_file;
+	char *my_file;
 	int real_fd;
 	int my_fd;
 	int real_errno;
@@ -169,24 +179,25 @@ void test_ft_write(void)
 		close(real_fd);
 		close(my_fd);
 		printf("test n°%d: ", i);
-		if (real_ret != my_ret)
+		if (real_ret != my_ret || strcmp(real_buff, my_buff))
 		{
-			printf(ERROR "ERROR: different return values\n" RESET_COL);
-			printf("real ret	=	%ld\n", real_ret);
-			printf("my ret		=	%ld\n", my_ret);
-		}
-		else
-		{
+			if (real_ret != my_ret)
+			{
+				printf(ERROR "\nERROR: different return values\n" RESET_COL);
+				printf("real ret	=	%ld\n", real_ret);
+				printf("my ret		=	%ld", my_ret);
+			}
 			if (strcmp(real_buff, my_buff))
 			{
-				printf(ERROR "ERROR: different buffer contents\n" RESET_COL);
+				printf(ERROR "\nERROR: different buffer contents\n" RESET_COL);
 				printf("real buffer	=	%s\n", real_buff);
 				printf("my buffer	=	%s\n", my_buff);
 			}
-			else
-				printf(SUCCESS "SUCCESS\n" RESET_COL);
 		}
+		else
+			printf(SUCCESS "SUCCESS" RESET_COL);
 		i++;
+		printf("\n");
 	}
 	my_ret = ft_write(56, "hello", 5);
 	my_errno = errno;
@@ -197,13 +208,13 @@ void test_ft_write(void)
 	{
 		if (real_ret != my_ret)
 		{
-			printf(ERROR "ERROR: different return values\n" RESET_COL);
+			printf(ERROR "\nERROR: different return values\n" RESET_COL);
 			printf("real ret	=	%ld\n", real_ret);
-			printf("my ret		=	%ld\n", my_ret);
+			printf("my ret		=	%ld", my_ret);
 		}
 		if (real_errno != my_errno)
 		{
-			printf(ERROR "ERROR: different errno values\n" RESET_COL);
+			printf(ERROR "\nERROR: different errno values\n" RESET_COL);
 			printf("real errno	=	%d\n", real_errno);
 			printf("my errno	=	%d\n", my_errno);
 		}
@@ -212,6 +223,14 @@ void test_ft_write(void)
 		printf(SUCCESS "SUCCESS\n" RESET_COL);
 	remove(real_file);
 	remove(my_file);
+	if (real_file != NULL)
+		free(real_file);
+	if (my_file != NULL)
+		free(my_file);
+	if (real_buff != NULL)
+		free(real_buff);
+	if (my_buff != NULL)
+		free(my_buff);
 	printf("\n\n");
 }
 
@@ -221,8 +240,8 @@ void test_ft_read(void)
 	ssize_t my_ret;
 	char *real_buff;
 	char *my_buff;
-	const char *real_file;
-	const char *my_file;
+	char *real_file;
+	char *my_file;
 	int real_fd;
 	int my_fd;
 	int real_errno;
@@ -248,24 +267,25 @@ void test_ft_read(void)
 		close(real_fd);
 		close(my_fd);
 		printf("test n°%d: ", i);
-		if (real_ret != my_ret)
+		if (real_ret != my_ret || strcmp(real_buff, my_buff))
 		{
-			printf(ERROR "ERROR: different return values\n" RESET_COL);
-			printf("real ret	=	%ld\n", real_ret);
-			printf("my ret		=	%ld\n", my_ret);
-		}
-		else
-		{
+			if (real_ret != my_ret)
+			{
+				printf(ERROR "\nERROR: different return values\n" RESET_COL);
+				printf("real ret	=	%ld\n", real_ret);
+				printf("my ret		=	%ld", my_ret);
+			}
 			if (strcmp(real_buff, my_buff))
 			{
-				printf(ERROR "ERROR: different buffer contents\n" RESET_COL);
+				printf(ERROR "\nERROR: different buffer contents\n" RESET_COL);
 				printf("real buffer	=	%s\n", real_buff);
 				printf("my buffer	=	%s\n", my_buff);
 			}
-			else
-				printf(SUCCESS "SUCCESS\n" RESET_COL);
 		}
+			else
+				printf(SUCCESS "SUCCESS" RESET_COL);
 		i++;
+		printf("\n");
 	}
 	my_ret = ft_read(56, "hello", 5);
 	my_errno = errno;
@@ -276,21 +296,29 @@ void test_ft_read(void)
 	{
 		if (real_ret != my_ret)
 		{
-			printf(ERROR "ERROR: different return values\n" RESET_COL);
+			printf(ERROR "\nERROR: different return values\n" RESET_COL);
 			printf("real ret	=	%ld\n", real_ret);
-			printf("my ret	=	%ld\n", my_ret);
+			printf("my ret	=	%ld", my_ret);
 		}
 		if (real_errno != my_errno)
 		{
-			printf(ERROR "ERROR: different errno values\n" RESET_COL);
+			printf(ERROR "\nERROR: different errno values\n" RESET_COL);
 			printf("real errno	=	%d\n", real_errno);
-			printf("my errno	=	%d\n", my_errno);
+			printf("my errno	=	%d", my_errno);
 		}
 	}
 	else
 		printf(SUCCESS "SUCCESS\n" RESET_COL);
 	remove(real_file);
 	remove(my_file);
+	if (real_file != NULL)
+		free(real_file);
+	if (my_file != NULL)
+		free(my_file);
+	if (real_buff != NULL)
+		free(real_buff);
+	if (my_buff != NULL)
+		free(my_buff);
 	printf("\n\n");
 }
 
