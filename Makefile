@@ -6,7 +6,7 @@
 #    By: allefebv <allefebv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 10:53:45 by allefebv          #+#    #+#              #
-#    Updated: 2021/02/04 12:52:37 by allefebv         ###   ########.fr        #
+#    Updated: 2021/02/04 14:00:05 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.s Makefile
 
 test:			$(NAME) main.c
 				$(CC) $(CFLAGS) main.c $(NAME) -o $(TESTER) libasm.h
+				@./libasm_tester
 
 clean:			
 				rm -rf $(OBJS_DIR)

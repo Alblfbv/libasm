@@ -199,10 +199,10 @@ void test_ft_write(void)
 		i++;
 		printf("\n");
 	}
-	my_ret = ft_write(56, "hello", 5);
-	my_errno = errno;
 	real_ret = write(56, "hello", 5);
 	real_errno = errno;
+	my_ret = ft_write(56, "hello", 5);
+	my_errno = errno;
 	printf("test n°%d: ", i);
 	if (real_ret != my_ret || real_errno != my_errno)
 	{
@@ -282,15 +282,15 @@ void test_ft_read(void)
 				printf("my buffer	=	%s\n", my_buff);
 			}
 		}
-			else
-				printf(SUCCESS "SUCCESS" RESET_COL);
+		else
+			printf(SUCCESS "SUCCESS" RESET_COL);
 		i++;
 		printf("\n");
 	}
-	my_ret = ft_read(56, "hello", 5);
-	my_errno = errno;
 	real_ret = read(56, "hello", 5);
 	real_errno = errno;
+	my_ret = ft_read(56, "hello", 5);
+	my_errno = errno;
 	printf("test n°%d: ", i);
 	if (real_ret != my_ret || real_errno != my_errno)
 	{
