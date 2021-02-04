@@ -6,7 +6,7 @@
 #    By: allefebv <allefebv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 10:53:45 by allefebv          #+#    #+#              #
-#    Updated: 2021/02/04 10:58:59 by allefebv         ###   ########.fr        #
+#    Updated: 2021/02/04 12:52:37 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ fclean:			clean
 				rm -f $(TESTER)
 				echo "fcleaned libasm"
 	
-re:				fclean all
+re:				fclean
+				$(MAKE) all
 
 .SILENT:		$(OBJS) $(NAME) all clean fclean re
